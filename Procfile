@@ -1,1 +1,1 @@
-web: mvn spring-boot:run
+web: java $JAVA_OPTS -jar target/GoalTracker-0.0.1-SNAPSHOT.jar
