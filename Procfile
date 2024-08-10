@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/GoalTracker-0.0.1-SNAPSHOT.jar
+web: java $JAVA_OPTS -jar target/GoalTracker-0.0.1-SNAPSHOT.jar --port 8080
