@@ -2,6 +2,7 @@ package com.goaltracker.GoalTracker.Controllers;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,8 +17,8 @@ public class CalendarController {
     private final CalendarService calendarService;
 
     @GetMapping("/calendar/getMonthData")
-    public List<String> getMonthData() {
+    public ResponseEntity<List<String>> getMonthData() {
 
-        return calendarService.getMonthData();
+        return ResponseEntity.ok(calendarService.getMonthData());
     }
 }
