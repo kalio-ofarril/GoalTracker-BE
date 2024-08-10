@@ -16,6 +16,12 @@ public class CalendarController {
 
     private final CalendarService calendarService;
 
+    @GetMapping("/")
+    public ResponseEntity<String> healthCheck() {
+
+        return ResponseEntity.ok("Beating heart");
+    }
+
     @GetMapping("/calendar/getMonthData")
     public ResponseEntity<List<String>> getMonthData() {
 
