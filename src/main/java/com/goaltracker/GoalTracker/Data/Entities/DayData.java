@@ -14,14 +14,14 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "monthData")
+@Table(name = "DayData")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @ToString
-public class MonthData {
+public class DayData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,11 +30,14 @@ public class MonthData {
     @Column(name = "UserId")
     private Long userId;
 
+    @Column(name = "yearNumber")
+    private int yearNumber;
+
     @Column(name = "MonthNumber")
     private int monthNumber;
 
-    @Column(name = "MonthDay")
-    private int monthDay;
+    @Column(name = "DayNumber")
+    private int dayNumber;
 
     @Column(name = "Activities")
     private String activities;
