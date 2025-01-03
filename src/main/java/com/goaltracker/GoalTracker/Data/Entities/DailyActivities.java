@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,15 +20,15 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@IdClass(DayDataId.class)
-@Table(schema = "goal_tracker", name = "day_data")
+@IdClass(DailyActivitiesId.class)
+@Table(schema = "goal_tracker", name = "daily_activities")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @ToString
-public class DayData {
+public class DailyActivities {
 
     @Id
     @Column(name = "UserId")
@@ -39,12 +41,10 @@ public class DayData {
     @Column(name = "Activities")
     private String activities;
 
-    @Column(name = "Comments")
-    private String comments;
-
 }
 
-class DayDataId implements Serializable {
+class DailyActivitiesId implements Serializable {
+
     private int userId;
     private LocalDate activityDate;
 }

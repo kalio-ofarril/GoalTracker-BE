@@ -1,14 +1,10 @@
 package com.goaltracker.GoalTracker.Data.Entities;
 
-import java.io.Serializable;
-import java.time.LocalDate;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,33 +14,33 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@IdClass(DayDataId.class)
-@Table(schema = "goal_tracker", name = "day_data")
+@Table(schema = "goal_tracker", name = "user_login")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @ToString
-public class DayData {
+public class UserLogin {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    @Column(name = "UserLoginId")
+    private Long userLoginId;
+
     @Column(name = "UserId")
-    private int userId;
+    private Long userId;
 
-    @Id
-    @Column(name = "ActivityDate")
-    private LocalDate activityDate;
+    @Column(name = "UserName")
+    private String userName;
 
-    @Column(name = "Activities")
-    private String activities;
+    @Column(name = "Email")
+    private String email;
 
-    @Column(name = "Comments")
-    private String comments;
+    @Column(name = "Password")
+    private String password;
 
-}
+    @Column(name = "IsGoogle")
+    private Boolean isGoogle;
 
-class DayDataId implements Serializable {
-    private int userId;
-    private LocalDate activityDate;
 }

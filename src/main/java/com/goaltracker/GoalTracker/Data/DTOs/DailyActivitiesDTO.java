@@ -3,7 +3,6 @@ package com.goaltracker.GoalTracker.Data.DTOs;
 import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,13 +13,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Builder
-public class DayDataDTO {
+public class DailyActivitiesDTO {
 
     private int userId;
     private LocalDate activityDate;
     private String activities;
-    private String goalActivities;
-    private String comments;
 
 }
