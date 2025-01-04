@@ -18,6 +18,9 @@ public class CorsConfig {
     @Value("${GOAL_TRACKER_FE_URL}")
     private String goalTrackerFEUrl;
 
+    @Value("${GOAL_TRACKER_FE_URL_2}")
+    private String goalTrackerFEUrl2;
+
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
@@ -26,7 +29,7 @@ public class CorsConfig {
                 registry.addMapping("/**")
                         .allowedMethods("GET", "POST")
                         .allowedHeaders("*")
-                        .allowedOrigins(goalTrackerFEUrl);
+                        .allowedOrigins(goalTrackerFEUrl, goalTrackerFEUrl2);
             }
         };
     }
