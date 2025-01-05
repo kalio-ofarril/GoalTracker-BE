@@ -82,6 +82,7 @@ public class UserLoginServiceImpl implements UserLoginService {
             }
             UserLogin createdUser = UserLogin.builder()
                     .email(userLoginDTO.getEmail())
+                    .password(encryptor.encrypt(userLoginDTO.getPassword()))
                     .isGoogle(false)
                     .userId(userLoginRepository.getGoogleUserLogin(userLoginDTO.getEmail()).getUserId())
                     .userName(userLoginDTO.getUserName())
