@@ -18,5 +18,6 @@ public class DailyActivitiesDTO {
     private int userId;
     private LocalDate activityDate;
     private String activities;
+    private Boolean isDelete;
 
 }

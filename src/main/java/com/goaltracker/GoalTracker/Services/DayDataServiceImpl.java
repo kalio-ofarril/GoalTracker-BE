@@ -58,7 +58,6 @@ public class DayDataServiceImpl implements DayDataService {
                 System.out.println(dayData);
                 System.out.println(dailyActivities);
             }
-
         }
 
         return monthData;
@@ -77,10 +76,13 @@ public class DayDataServiceImpl implements DayDataService {
     public DayData createDailyEntry(DayDataDTO dayDataDTO) {
 
         if (dayDataDTO != null) {
-            DayData dayData = DayData.builder().activityDate(dayDataDTO.getActivityDate())
-                    .activities(dayDataDTO.getActivities()).comments(dayDataDTO.getComments())
-                    .userId(dayDataDTO.getUserId())
-                    .build();
+            DayData dayData = DayData
+                .builder()
+                .activityDate(dayDataDTO.getActivityDate())
+                .activities(dayDataDTO.getActivities())
+                .comments(dayDataDTO.getComments())
+                .userId(dayDataDTO.getUserId())
+                .build();
 
             return dayDataRepository.save(dayData);
         } else {

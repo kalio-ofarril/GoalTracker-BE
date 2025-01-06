@@ -7,8 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.goaltracker.GoalTracker.Data.Entities.DayData;
+import com.goaltracker.GoalTracker.Data.Entities.DayDataId;
 
-public interface DayDataRepository extends JpaRepository<DayData, Long> {
+public interface DayDataRepository extends JpaRepository<DayData, DayDataId> {
 
     List<DayData> findAll();
 

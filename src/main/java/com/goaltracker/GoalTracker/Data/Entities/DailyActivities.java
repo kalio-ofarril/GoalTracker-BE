@@ -1,14 +1,9 @@
 package com.goaltracker.GoalTracker.Data.Entities;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
@@ -41,10 +36,4 @@ public class DailyActivities {
     @Column(name = "Activities")
     private String activities;
 
-}
-
-class DailyActivitiesId implements Serializable {
-
-    private int userId;
-    private LocalDate activityDate;
 }

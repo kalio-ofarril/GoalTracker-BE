@@ -60,6 +60,8 @@ public class DailyActivitiesController {
     public ResponseEntity<List<DailyActivities>> setMonthActivities(
             @RequestBody List<DailyActivitiesDTO> monthActivitiesDTO) {
 
+        log.atInfo().setMessage("Saving entry for DailyActivitiesDTO: {}").addArgument(monthActivitiesDTO.toString()).log();
+
         List<DailyActivities> monthActivitiesResp = DailyActivitiesService.saveAll(monthActivitiesDTO);
 
         if (monthActivitiesResp != null) {

@@ -11,7 +11,10 @@ import com.goaltracker.GoalTracker.Data.Entities.UserLogin;
 import com.goaltracker.GoalTracker.Data.Repositories.UserLoginRepository;
 import com.goaltracker.GoalTracker.Utils.Exceptions.UserException;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class UserLoginServiceImpl implements UserLoginService {
 
     private UserLoginRepository userLoginRepository;
@@ -55,7 +58,12 @@ public class UserLoginServiceImpl implements UserLoginService {
                         .userId(userLogin.getUserId())
                         .build();
             }
-            throw new UserException("Not registered with Google Login.");
+            UserLogin user = this.signUpGoogle(userLoginDTO);
+            return UserLoginDTO
+                .builder()
+                .email(user.getEmail())
+                .userId(user.getUserId())
+                .build();
         }
         return null;
     }
